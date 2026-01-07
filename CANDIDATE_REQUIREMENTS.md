@@ -153,12 +153,8 @@ If something is unclear:
 
 ## Your Summary
 
-_(Add your summary here when you're done)_
+When you're done, add a brief summary here covering:
 
-**What I built:**
-
-- **Key decisions:**
-
-- **With more time, I would:**
-
--
+- **What you built** (which core features you chose)
+- **Key decisions** you made along the way
+- **What you'd add with more time**
