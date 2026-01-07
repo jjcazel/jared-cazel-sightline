@@ -1,6 +1,6 @@
 # Interview Task: Order Data Dashboard
 
-**Time Limit: 2 hours maximum**
+**Time Limit: ≈ 2 hours of hands-on coding**
 
 ## Overview
 
@@ -9,10 +9,26 @@ You'll build a data visualization dashboard using realistic order data. We've pr
 **What we're evaluating:**
 
 - React + TypeScript proficiency
-- Data manipulation and transformation
 - UI/UX judgment for making data actionable
 - Code organization and reusability
 - Prioritization under time constraints
+
+## Time-Boxing & Development Approach
+
+We respect your time. Please **stop after ≈ 2 hours of hands-on coding**. It is expected that after 2 hours there will be features you want to polish or optimizations you want to make. That is **perfectly OK** – document these thoughts in your summary at the end.
+
+### Recommended Approach:
+
+- **Leverage AI development tools heavily** (Claude, Cursor, Windsurf, GitHub Copilot, etc.)
+- Focus on core functionality first, polish later
+- Time-box decisions (don't spend 30 minutes picking a chart library)
+
+### Acceptable Shortcuts:
+
+- Use pre-built component libraries rather than building from scratch
+- Use any charting library you're comfortable with
+- Focus on the happy path, skip edge case handling
+- Basic styling is fine - functional > beautiful
 
 ## The Data
 
@@ -81,20 +97,23 @@ Create **one** meaningful chart showing:
 
 **Why we care:** Can you transform data for visualization? How do you choose what to show?
 
-## What We're Looking For
+## Evaluation Criteria
 
-✅ **Working code** - We'll run `npm run dev` and test it  
-✅ **Clean components** - Reusable, well-organized  
-✅ **Proper TypeScript** - Types for props, state, data  
-✅ **Thoughtful UI** - Intuitive, clean interface  
-✅ **Smart trade-offs** - You can't do everything in 2 hours
+| What We're Looking For | What We Care About                                                                                |
+| ---------------------- | ------------------------------------------------------------------------------------------------- |
+| **Core Functionality** | At least 2 of the 3 requirements work; data displays correctly; interactions function as expected |
+| **Code Quality**       | Clean React patterns; reusable components; proper TypeScript usage; reasonable state management   |
+| **UI/UX**              | Intuitive interface; clear data presentation; responsive design\*; visual feedback                |
+| **Time Management**    | Smart prioritization; documented TODOs; realistic scope for 2 hours                               |
 
-❌ **Don't worry about:**
+\* Responsive within typical desktop browser sizes - no need for full mobile support
 
-- Perfect styling (functional > beautiful)
-- Edge cases (focus on happy path)
-- Tests (we know you're time-constrained)
-- Performance optimization (unless obvious)
+### Don't Worry About:
+
+❌ Perfect styling (functional > beautiful)  
+❌ Edge cases (focus on happy path)  
+❌ Tests (we know you're time-constrained)  
+❌ Performance optimization (unless obvious)
 
 ## Getting Started
 
@@ -125,10 +144,12 @@ Feel free to install any libraries you're comfortable with:
 
 ## Deliverables
 
+Submit your solution as a **Git repository** (GitHub link preferred) or **zip file** containing:
+
 1. **Working code** that runs with `npm run dev`
 2. **Brief comments** on complex logic (inline or in code)
 3. **A short summary** (add to the bottom of this file):
-   - What you built
+   - What you built (which core features you chose)
    - Key decisions you made
    - What you'd add with more time
 
@@ -136,9 +157,9 @@ Feel free to install any libraries you're comfortable with:
 
 - **Start simple** - Get one thing working well, then add more
 - **Use the console** - The demo page logs all data, check the structure
-- **Time-box decisions** - Don't spend 30 minutes picking a chart library
 - **Partial > perfect** - A working table beats an unfinished table + broken chart
 - **Document trade-offs** - If you skip something, explain why in your summary
+- **Ask questions** - If something is unclear, reach out!
 
 ## Questions?
 
@@ -158,3 +179,7 @@ When you're done, add a brief summary here covering:
 - **What you built** (which core features you chose)
 - **Key decisions** you made along the way
 - **What you'd add with more time**
+
+---
+
+Good luck, and happy coding! 🚀
