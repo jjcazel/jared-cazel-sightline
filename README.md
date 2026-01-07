@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Order Data Interview App
 
-## Getting Started
+A Next.js application with fake order data generation for technical interviews. This app provides the complete data infrastructure - candidates build the visualization layer.
 
-First, run the development server:
+## For Candidates
+
+**👉 See [CANDIDATE_REQUIREMENTS.md](./CANDIDATE_REQUIREMENTS.md) for your interview task.**
+
+## Quick Start
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Open the App
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You'll see a demo page with:
 
-## Learn More
+- Date range picker (already working)
+- Sample data display
+- Basic statistics
+- Your task description
 
-To learn more about Next.js, take a look at the following resources:
+## Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js 14+** with App Router
+- **TypeScript** for type safety
+- **React Query** (@tanstack/react-query) for data fetching
+- **date-fns** for date manipulation
+- **Tailwind CSS** for styling
+- **Radix UI** for accessible components
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Architecture
 
-## Deploy on Vercel
+The data infrastructure follows a clean pattern:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+Page (Client) → useOrders Hook → getOrders Action → getOrdersFromDB → Generated Data
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All the infrastructure is built - you focus on the UI layer.
+
+## Data Overview
+
+**Type definitions:** [`types/order.ts`](types/order.ts)
+
+**Fake data includes:**
+
+- 200 unique items (ITEM-001 to ITEM-200)
+- 10 stores (Store A to Store J)
+- 15 suppliers (Supplier 1 to Supplier 15)
+- Realistic order frequencies and pricing
+- Deterministic generation (same dates = same data)
+
+## Project Structure
+
+```
+interview-app/
+├── app/
+│   ├── page.tsx            # Demo page - replace with your solution
+│   └── layout.tsx          # Root layout with QueryProvider
+├── components/ui/          # UI components (Button, DatePicker, etc.)
+├── hooks/
+│   └── use-orders.ts       # Main hook to fetch orders
+├── actions/
+│   └── orders.ts           # Server actions (getOrders, etc.)
+├── data/
+│   └── orders.ts           # Data generation logic
+├── types/
+│   └── order.ts            # TypeScript type definitions
+└── CANDIDATE_REQUIREMENTS.md  # Your interview task
+```
+
+## Available Hooks & Functions
+
+```typescript
+// Fetch orders for a date range
+const { data: orders, isLoading, error } = useOrders(startDate, endDate);
+
+// Get filter options (from actions/orders.ts)
+const stores = await getStoreNames();
+const suppliers = await getSupplierNames();
+const items = await getItemNumbers();
+```
+
+## For Interviewers
+
+This app provides a complete data infrastructure for candidates to build against. The data layer generates realistic, deterministic fake data that mimics real-world order patterns.
+
+**To use:**
+
+1. Share the repository with the candidate
+2. Give them [CANDIDATE_REQUIREMENTS.md](./CANDIDATE_REQUIREMENTS.md)
+3. Allocate 2 hours for completion
+4. Review their code + written summary
