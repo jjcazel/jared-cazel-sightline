@@ -124,6 +124,7 @@ export async function getOrdersFromDB(
         // Generate line item details
         const quantity = Math.floor(rng() * 20) + 1; // 1-20 units
         const unitPrice = getItemPrice(itemNumber, rng); // Stable price per item with small variance
+        const totalPrice = Math.round(quantity * unitPrice * 100) / 100; // totalPrice = unitPrice * quantity
         
         const lineItem: OrderLineItem = {
           orderNumber: '', // Will be set when we assign to an order
@@ -131,6 +132,7 @@ export async function getOrdersFromDB(
           supplierName,
           quantity,
           unitPrice,
+          totalPrice,
         };
         
         // Group line items into orders (try to batch 3-5 items per order for same store/date)
@@ -143,8 +145,6 @@ export async function getOrdersFromDB(
             orderNumber,
             storeName,
             orderDate: new Date(currentDate),
-            subtotalAmount: 0,
-            totalAmount: 0,
             lineItems: [],
           };
           orderMap.set(orderKey, order);
@@ -158,16 +158,6 @@ export async function getOrdersFromDB(
     // Move to next day
     currentDate.setDate(currentDate.getDate() + 1);
   }
-  
-  // Calculate totals for each order
-  orderMap.forEach((order) => {
-    const subtotal = order.lineItems.reduce(
-      (sum, item) => sum + (item.quantity * item.unitPrice),
-      0
-    );
-    order.subtotalAmount = Math.round(subtotal * 100) / 100;
-    order.totalAmount = Math.round(subtotal * 1.08 * 100) / 100; // Add 8% tax
-  });
   
   // Convert map to array and sort by date descending
   const sortedOrders = Array.from(orderMap.values()).sort(

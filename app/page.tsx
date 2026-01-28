@@ -117,7 +117,11 @@ export default function Home() {
   const totalLineItems =
     orders?.reduce((sum, order) => sum + order.lineItems.length, 0) || 0;
   const totalAmount =
-    orders?.reduce((sum, order) => sum + order.totalAmount, 0) || 0;
+    orders?.reduce(
+      (sum, order) =>
+        sum + order.lineItems.reduce((itemSum, item) => itemSum + item.totalPrice, 0),
+      0
+    ) || 0;
 
   return (
     <div className="min-h-screen bg-gray-50 p-8">
@@ -217,16 +221,6 @@ export default function Home() {
                             showQuotes={false}
                           />
                           <DataField
-                            label="subtotalAmount"
-                            value={orders[0].subtotalAmount.toFixed(2)}
-                            color="green"
-                          />
-                          <DataField
-                            label="totalAmount"
-                            value={orders[0].totalAmount.toFixed(2)}
-                            color="green"
-                          />
-                          <DataField
                             label="lineItems"
                             value={`[${orders[0].lineItems.length} items]`}
                             color="gray"
@@ -266,6 +260,11 @@ export default function Home() {
                               <DataField
                                 label="unitPrice"
                                 value={item.unitPrice.toFixed(2)}
+                                color="green"
+                              />
+                              <DataField
+                                label="totalPrice"
+                                value={item.totalPrice.toFixed(2)}
                                 color="green"
                               />
                             </div>

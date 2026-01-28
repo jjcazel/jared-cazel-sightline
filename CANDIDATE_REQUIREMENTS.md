@@ -39,8 +39,6 @@ Order {
   orderNumber: string;
   storeName: string;
   orderDate: Date;
-  subtotalAmount: number;
-  totalAmount: number;
   lineItems: OrderLineItem[];
 }
 
@@ -50,6 +48,7 @@ OrderLineItem {
   supplierName: string;
   quantity: number;
   unitPrice: number;
+  totalPrice: number; // totalPrice = unitPrice * quantity
 }
 ```
 
