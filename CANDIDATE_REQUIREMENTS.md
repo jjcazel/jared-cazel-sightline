@@ -1,6 +1,6 @@
 # Interview Task: Order Data Dashboard
 
-**Time Limit: ≈ 2 hours of hands-on coding**
+**Time Limit: ≈ 1-2 hours of hands-on coding**
 
 ## Overview
 
@@ -15,7 +15,7 @@ You'll build a data visualization dashboard using realistic order data. We've pr
 
 ## Time-Boxing & Development Approach
 
-We respect your time. Please **stop after ≈ 2 hours of hands-on coding**. It is expected that after 2 hours there will be features you want to polish or optimizations you want to make. That is **perfectly OK** – document these thoughts in your summary at the end.
+We respect your time. Please **stop after ≈ 2 hours of hands-on coding**. It is expected that after 1-2 hours there will be features you want to polish or optimizations you want to make. That is **perfectly OK** – document these thoughts in your summary at the end.
 
 ### Recommended Approach:
 
@@ -104,7 +104,7 @@ Create **one** meaningful chart showing:
 | **Core Functionality** | At least 2 of the 3 requirements work; data displays correctly; interactions function as expected |
 | **Code Quality**       | Clean React patterns; reusable components; proper TypeScript usage; reasonable state management   |
 | **UI/UX**              | Intuitive interface; clear data presentation; responsive design\*; visual feedback                |
-| **Time Management**    | Smart prioritization; documented TODOs; realistic scope for 2 hours                               |
+| **Time Management**    | Smart prioritization; documented TODOs; realistic scope for 1-2 hours                               |
 
 \* Responsive within typical desktop browser sizes - no need for full mobile support
 
