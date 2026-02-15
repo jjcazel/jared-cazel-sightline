@@ -103,7 +103,7 @@ Create **one** meaningful chart showing:
 | **Core Functionality** | At least 2 of the 3 requirements work; data displays correctly; interactions function as expected |
 | **Code Quality**       | Clean React patterns; reusable components; proper TypeScript usage; reasonable state management   |
 | **UI/UX**              | Intuitive interface; clear data presentation; responsive design\*; visual feedback                |
-| **Time Management**    | Smart prioritization; documented TODOs; realistic scope for 1-2 hours                               |
+| **Time Management**    | Smart prioritization; documented TODOs; realistic scope for 1-2 hours                             |
 
 \* Responsive within typical desktop browser sizes - no need for full mobile support
 
@@ -173,12 +173,29 @@ If something is unclear:
 
 ## Your Summary
 
-When you're done, add a brief summary here covering:
+What I built
 
-- **What you built** (which core features you chose)
-- **Key decisions** you made along the way
-- **What you'd add with more time**
+- A server-rendered dashboard page that composes static header content with client-only data components.
+- A sortable, filterable orders table using Material React Table, plus summary stats and loading skeletons.
+
+Key decisions
+
+- Chose Material React Table to avoid wiring a headless TanStack table to UI components while still getting built-in sorting and filtering suited for larger datasets.
+- Kept the main page as a server component to reduce client bundle size, and moved interactive logic into dedicated client components.
+- Used focused loading states so static UI renders immediately while the table/data loads.
+- Added comprehensive TSDoc comments and kept styling in Tailwind to match existing conventions.
+
+What I would add with more time
+
+- Custom pagination and filter UI for a more refined UX.
+- Extract column definitions into a separate module for reuse and clarity.
+- Optionally add SCSS modules for more structured styling if the project moved away from Tailwind.
+
+Notes
+
+- I was able to get a working, polished MVP with Copilot in about 30 minutes.
+- The current setup should remain performant even for tens of thousands of rows, but I would profile real data.
 
 ---
 
-Good luck, and happy coding! 🚀
+Thanks for the opportunity and I appreciate any feedback!

@@ -23,10 +23,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // suppressHydrationWarning prevents hydration mismatches caused by browser extensions
+  // (e.g., Grammarly injecting data-gr-* attributes). This is a known Next.js pattern for
+  // handling third-party injection we can't control in the app code.
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        suppressHydrationWarning
       >
         <QueryProvider>{children}</QueryProvider>
       </body>
