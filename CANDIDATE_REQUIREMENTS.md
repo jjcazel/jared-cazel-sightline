@@ -175,13 +175,16 @@ If something is unclear:
 
 What I built
 
-- A server-rendered dashboard page that composes static header content with client-only data components.
-- A sortable, filterable orders table using Material React Table, plus summary stats and loading skeletons.
+- A server-rendered home page at [app/page.tsx](app/page.tsx) that composes the dashboard header and data content.
+- [components/data-table/dashboard-header.tsx](components/data-table/dashboard-header.tsx): static header/title block that never re-renders.
+- [components/data-table/dashboard-content.tsx](components/data-table/dashboard-content.tsx): client-only controller for date range, data fetching, and conditional rendering.
+- [components/data-table/orders-table.tsx](components/data-table/orders-table.tsx): Material React Table with sorting, filtering, and formatted currency totals.
+- [components/data-table/table-loading-skeleton.tsx](components/data-table/table-loading-skeleton.tsx): loading indicator for the table and stats section.
 
 Key decisions
 
 - Chose Material React Table to avoid wiring a headless TanStack table to UI components while still getting built-in sorting and filtering suited for larger datasets.
-- Kept the main page as a server component to reduce client bundle size, and moved interactive logic into dedicated client components.
+- Made the main page a server component to reduce client bundle size, and moved interactive logic into dedicated client components.
 - Used focused loading states so static UI renders immediately while the table/data loads.
 - Added comprehensive TSDoc comments and kept styling in Tailwind to match existing conventions.
 
